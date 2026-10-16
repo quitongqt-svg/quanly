@@ -12,8 +12,8 @@
 </head>
 <body class="bg-slate-900 text-slate-100 pb-24">
 
-  <!-- HEADER -->
-  <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 p-3 shadow-md">
+  <!-- HEADER HEADER -->
+  <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 p-3.5 shadow-md">
     <div class="max-w-2xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2">
         <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-lg">
@@ -24,7 +24,7 @@
           <p class="text-[10px] font-bold text-blue-400">13853 - Tống Hoàng Quí</p>
         </div>
       </div>
-      <button onclick="resetAll()" class="text-[10px] font-bold bg-slate-700 text-rose-300 px-3 py-1.5 rounded-xl">🔄 Làm mới tất cả</button>
+      <button onclick="resetAll()" class="text-[10px] font-bold bg-slate-700 hover:bg-slate-600 text-rose-300 px-3 py-1.5 rounded-xl transition">🔄 Làm mới tất cả</button>
     </div>
   </header>
 
@@ -39,7 +39,7 @@
         <span class="text-[9px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full font-bold">Ô Nhập 1</span>
       </div>
       <textarea id="inputDT" rows="2" placeholder="Dán báo cáo Doanh thu / Lũy kế vào đây..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 focus:outline-none resize-none"></textarea>
-      <button onclick="processData('DT')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2 rounded-xl transition">Cập Nhật Doanh Thu</button>
+      <button onclick="processData('DT')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 rounded-xl transition active:scale-95">🚀 CẬP NHẬT DOANH THU REALTIME</button>
     </div>
 
     <!-- KHUNG 2: GIỜ CÔNG NHÂN VIÊN -->
@@ -51,7 +51,7 @@
         <span class="text-[9px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold">Ô Nhập 2</span>
       </div>
       <textarea id="inputGC" rows="2" placeholder="Dán bảng Giờ công việc vào đây..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 focus:outline-none resize-none"></textarea>
-      <button onclick="processData('GC')" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs py-2 rounded-xl transition">Phân Tích Giờ Công Ca</button>
+      <button onclick="processData('GC')" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs py-2.5 rounded-xl transition active:scale-95">🚀 BÓC TÁCH BẢNG GIỜ CÔNG CA</button>
     </div>
 
     <!-- KHUNG 3: THI ĐUA SIÊU THỊ -->
@@ -63,7 +63,7 @@
         <span class="text-[9px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-bold">Ô Nhập 3</span>
       </div>
       <textarea id="inputTDST" rows="2" placeholder="Dán báo cáo thi đua siêu thị vào đây..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 focus:outline-none resize-none"></textarea>
-      <button onclick="processData('TDST')" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs py-2 rounded-xl transition">Cập Nhật Thi Đua Siêu Thị</button>
+      <button onclick="processData('TDST')" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs py-2.5 rounded-xl transition active:scale-95">🚀 BÓC TÁCH 26 CHƯƠNG TRÌNH THI ĐƯA</button>
     </div>
 
     <!-- KHUNG 4: THI ĐUA NHÂN VIÊN & XẾP HẠNG -->
@@ -75,7 +75,7 @@
         <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-bold">Ô Nhập 4</span>
       </div>
       <textarea id="inputTDNV" rows="2" placeholder="Dán bảng Doanh thu & Xếp hạng nhân viên vào đây..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 focus:outline-none resize-none"></textarea>
-      <button onclick="processData('TDNV')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 rounded-xl transition">Cập Nhật Thi Đua Nhân Viên</button>
+      <button onclick="processData('TDNV')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl transition active:scale-95">🚀 XẾP HẠNG TOP 1 NHÂN VIÊN</button>
     </div>
 
     <!-- KHUNG 5: NHÓM HÀNG / NGÀNH HÀNG -->
@@ -87,44 +87,189 @@
         <span class="text-[9px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-bold">Ô Nhập 5</span>
       </div>
       <textarea id="inputNH" rows="2" placeholder="Dán báo cáo theo nhóm hàng vào đây..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 focus:outline-none resize-none"></textarea>
-      <button onclick="processData('NH')" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-2 rounded-xl transition">Cập Nhật Nhóm Hàng</button>
+      <button onclick="processData('NH')" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-2.5 rounded-xl transition active:scale-95">🚀 BÓC TÁCH THEO NHÓM HÀNG</button>
     </div>
 
-    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ TỔNG HỢP -->
-    <div class="bg-slate-800 border border-slate-700 rounded-3xl p-4 space-y-3">
-      <h3 class="font-extrabold text-xs text-white border-b border-slate-700 pb-2">📋 KẾT QUẢ BÓC TÁCH DỮ LIỆU THỰC CHIẾN</h3>
-      <div id="resultBox" class="text-xs text-slate-300 space-y-2">
-        <p class="text-slate-500 italic">Chưa có dữ liệu. Anh Quí hãy dán số vào từng ô tương ứng và bấm cập nhật nhé!</p>
+    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ BÓC TÁCH CHI TIẾT DƯỚI CÙNG -->
+    <div class="bg-slate-800 border border-slate-700 rounded-3xl p-4 space-y-3 shadow-lg">
+      <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+        <h3 class="font-extrabold text-xs text-white flex items-center gap-1.5">
+          <span>📋</span> BẢNG THỐNG KÊ CHI TIẾT TỰ ĐỘNG
+        </h3>
+        <span id="dataStatus" class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2.5 py-0.5 rounded-full font-bold">Sẵn sàng nhận số</span>
+      </div>
+
+      <div id="resultBox" class="text-xs text-slate-300 space-y-3">
+        <p class="text-slate-500 italic text-center py-4">Chưa có số liệu. Anh Quí bấm DÁN vào các ô trên rồi nhấn nút tương ứng để xem bảng chi tiết tại đây nhé!</p>
       </div>
     </div>
 
   </main>
 
   <script>
+    function parseNumber(str) {
+      if (!str) return 0;
+      let clean = str.replace(/\./g, '').replace(',', '.');
+      return parseFloat(clean) || 0;
+    }
+
     function processData(type) {
       let idMap = { 'DT': 'inputDT', 'GC': 'inputGC', 'TDST': 'inputTDST', 'TDNV': 'inputTDNV', 'NH': 'inputNH' };
-      let names = { 'DT': 'Doanh Thu & Lũy Kế', 'GC': 'Giờ Công Nhân Viên', 'TDST': 'Thi Đua Siêu Thị', 'TDNV': 'Thi Đua Nhân Viên', 'NH': 'Nhóm Hàng' };
-      
       let val = document.getElementById(idMap[type]).value.trim();
+
       if (!val) {
-        alert("Anh Quí chưa dán dữ liệu vào ô " + names[type] + "!");
+        alert("Anh Quí hãy dán dữ liệu vào ô tương ứng trước nhé!");
         return;
       }
 
-      let box = document.getElementById('resultBox');
-      box.innerHTML = `<div class="p-3 bg-slate-900 rounded-xl border border-slate-700">
-        <p class="font-bold text-emerald-400">✅ Đã cập nhật thành công: ${names[type]}</p>
-        <p class="text-[11px] text-slate-400 mt-1 truncate">Nội dung: ${val.substring(0, 100)}...</p>
-      </div>` + box.innerHTML;
+      let resultContainer = document.getElementById('resultBox');
+      let outputHtml = "";
 
+      // 1. BÓC TÁCH BẢNG GIỜ CÔNG (GC)
+      if (type === 'GC') {
+        let lines = val.split('\n').filter(l => l.trim().length > 0);
+        let staffMap = {};
+        let totalHours = 0;
+
+        lines.forEach(line => {
+          if (line.includes("Ca 1") || line.includes("Ca 2") || line.includes("Ca 3") || line.includes("Ca 4") || line.includes("Ca 5")) {
+            let parts = line.split('\t');
+            if (parts.length >= 9) {
+              let name = parts[3] || "Nhân viên";
+              let hours = parseFloat(parts[8]) || 0;
+              if (!staffMap[name]) staffMap[name] = { hours: 0, shifts: 0 };
+              staffMap[name].hours += hours;
+              staffMap[name].shifts += 1;
+              totalHours += hours;
+            }
+          }
+        });
+
+        let rowsHtml = Object.keys(staffMap).map(name => `
+          <div class="flex justify-between items-center p-2 bg-slate-900/60 rounded-xl border border-slate-700/60 text-xs">
+            <span class="font-bold text-purple-300">${name}</span>
+            <span class="font-extrabold text-white">${staffMap[name].hours} Giờ <span class="text-slate-400 font-normal">(${staffMap[name].shifts} ca)</span></span>
+          </div>
+        `).join('');
+
+        outputHtml = `
+          <div class="p-3.5 bg-purple-900/20 border border-purple-500/30 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center border-b border-purple-500/20 pb-2">
+              <span class="font-black text-purple-300">📊 TỔNG HỢP GIỜ CÔNG PHÂN CA SIÊU THỊ</span>
+              <span class="bg-purple-500 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded-full">Tổng: ${totalHours.toFixed(2)}h</span>
+            </div>
+            <div class="space-y-1.5 pt-1">${rowsHtml || '<p class="text-slate-400">Đã nhận bảng dữ liệu giờ công.</p>'}</div>
+          </div>
+        `;
+      }
+
+      // 2. BÓC TÁCH THI ĐƯA SIÊU THỊ (TDST)
+      else if (type === 'TDST') {
+        let blocks = val.split(/(?=T09|T10|Chương trình|TRẢ LỰC)/g);
+        let itemsCount = 0;
+        let listHtml = "";
+
+        blocks.forEach(block => {
+          let lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+          if (lines.length >= 3) {
+            let title = lines[0];
+            let pqIndex = lines.findIndex(l => l.includes("Phú Quới") || l.includes("TGD_VLO_LHO"));
+            if (pqIndex !== -1 && lines[pqIndex + 1]) {
+              let parts = lines[pqIndex + 1].split(/\s+/);
+              if (parts.length >= 4) {
+                itemsCount++;
+                listHtml += `
+                  <div class="p-2.5 bg-slate-900/80 rounded-xl border border-slate-700 flex justify-between items-center text-xs">
+                    <div>
+                      <p class="font-bold text-amber-300">${title}</p>
+                      <p class="text-[10px] text-slate-400">Thực hiện: <b class="text-white">${parts[0]}</b> | Target: ${parts[1]}</p>
+                    </div>
+                    <span class="bg-amber-500/20 text-amber-300 font-extrabold text-[11px] px-2 py-1 rounded-lg">HT: ${parts[2]}</span>
+                  </div>
+                `;
+              }
+            }
+          }
+        });
+
+        outputHtml = `
+          <div class="p-3.5 bg-amber-900/20 border border-amber-500/30 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center border-b border-amber-500/20 pb-2">
+              <span class="font-black text-amber-300">🏆 BÁO CÁO 26 CHƯƠNG TRÌNH THI ĐƯA SIÊU THỊ</span>
+              <span class="bg-amber-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded-full">${itemsCount} Món</span>
+            </div>
+            <div class="space-y-1.5 pt-1">${listHtml || '<p class="text-slate-400">Đã ghi nhận dữ liệu thi đua.</p>'}</div>
+          </div>
+        `;
+      }
+
+      // 3. BÓC TÁCH THI ĐƯA NHÂN VIÊN (TDNV)
+      else if (type === 'TDNV') {
+        let blocks = val.split(/(?=T09|T10|Chương trình|TRẢ LỰC)/g);
+        let itemsHtml = "";
+
+        blocks.forEach(block => {
+          let lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+          if (lines.length >= 2) {
+            let title = lines[0];
+            let topStaff = "";
+            let topVal = "";
+
+            for (let i = 0; i < lines.length; i++) {
+              if (lines[i].match(/^\d+\s*-\s*/) && !topStaff) {
+                topStaff = lines[i];
+                topVal = lines[i + 1] || "";
+              }
+            }
+
+            if (topStaff) {
+              itemsHtml += `
+                <div class="p-2.5 bg-slate-900/80 rounded-xl border border-slate-700 flex justify-between items-center text-xs">
+                  <div>
+                    <p class="font-bold text-emerald-300">${title}</p>
+                    <p class="text-[10px] text-slate-300">🥇 Top 1: <b>${topStaff}</b></p>
+                  </div>
+                  <span class="font-extrabold text-emerald-400 text-xs">${topVal}</span>
+                </div>
+              `;
+            }
+          }
+        });
+
+        outputHtml = `
+          <div class="p-3.5 bg-emerald-900/20 border border-emerald-500/30 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center border-b border-emerald-500/20 pb-2">
+              <span class="font-black text-emerald-300">👥 XẾP HẠNG THI ĐƯA CÁ NHÂN NHÂN VIÊN</span>
+              <span class="bg-emerald-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded-full">Bóc tách Top 1</span>
+            </div>
+            <div class="space-y-1.5 pt-1">${itemsHtml || '<p class="text-slate-400">Đã bóc tách danh sách thi đua nhân viên.</p>'}</div>
+          </div>
+        `;
+      }
+
+      // 4. CÁC MỤC KHÁC (DOANH THU & NHÓM HÀNG)
+      else {
+        outputHtml = `
+          <div class="p-3.5 bg-blue-900/20 border border-blue-500/30 rounded-2xl space-y-2">
+            <p class="font-black text-blue-300">✅ ĐÃ CẬP NHẬT DỮ LIỆU CẤP CAO</p>
+            <div class="p-2.5 bg-slate-900 rounded-xl text-[11px] text-slate-300 whitespace-pre-line leading-relaxed max-h-40 overflow-y-auto">
+              ${val}
+            </div>
+          </div>
+        `;
+      }
+
+      resultContainer.innerHTML = outputHtml + resultContainer.innerHTML;
+      document.getElementById('dataStatus').innerText = "Đã bóc tách số liệu!";
       document.getElementById(idMap[type]).value = "";
-      alert("✅ Đã nhận và xử lý xong báo cáo " + names[type] + " cho siêu thị Phú Quới!");
+      alert("✅ Đã xử lý và tạo bảng chi tiết cho siêu thị Phú Quới!");
     }
 
     function resetAll() {
-      if(confirm("Làm mới toàn bộ các ô nhập?")) {
+      if(confirm("Làm mới toàn bộ bảng và dữ liệu?")) {
         ['inputDT', 'inputGC', 'inputTDST', 'inputTDNV', 'inputNH'].forEach(id => document.getElementById(id).value = '');
-        document.getElementById('resultBox').innerHTML = '<p class="text-slate-500 italic">Chưa có dữ liệu. Anh Quí hãy dán số vào từng ô tương ứng và bấm cập nhật nhé!</p>';
+        document.getElementById('resultBox').innerHTML = '<p class="text-slate-500 italic text-center py-4">Chưa có số liệu. Anh Quí bấm DÁN vào các ô trên rồi nhấn nút tương ứng để xem bảng chi tiết tại đây nhé!</p>';
+        document.getElementById('dataStatus').innerText = "Sẵn sàng nhận số";
       }
     }
   </script>
