@@ -44,12 +44,12 @@
       <!-- MÃ KHO & SỐ NGÀY -->
       <div class="grid grid-cols-2 gap-2.5">
         <div>
-          <label class="text-[10px] font-bold text-slate-400">Mã Kho (Ví dụ: 1453, 909)</label>
+          <label class="text-[10px] font-bold text-slate-400">Mã Kho</label>
           <input id="inputStoreId" type="text" oninput="checkAutoStore()" placeholder="Nhập mã kho..." class="w-full bg-slate-900 text-amber-400 text-xs p-2.5 rounded-xl border border-slate-700 font-black mt-1 focus:outline-none focus:border-amber-500">
         </div>
         <div>
           <label class="text-[10px] font-bold text-slate-400">Số Ngày Còn Lại Trong Tháng</label>
-          <input id="inputDays" type="number" placeholder="VD: 14" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
+          <input id="inputDays" type="number" placeholder="Nhập số ngày..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
       </div>
 
@@ -59,17 +59,17 @@
           <label class="text-[10px] font-bold text-slate-400">Tên & Địa Chỉ Siêu Thị (Tự nhớ)</label>
           <span id="storeStatus" class="text-[9px] bg-slate-700 text-slate-300 font-bold px-2 py-0.5 rounded-full">Sẵn sàng</span>
         </div>
-        <input id="inputAddress" type="text" placeholder="VD: Chợ phước yên phú quới vĩnh long..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-medium mt-1 focus:outline-none focus:border-amber-500">
+        <input id="inputAddress" type="text" placeholder="Nhập địa chỉ..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-medium mt-1 focus:outline-none focus:border-amber-500">
       </div>
 
       <div class="grid grid-cols-2 gap-2.5">
         <div>
           <label class="text-[10px] font-bold text-slate-400">Doanh Thu Lũy Kế (Triệu)</label>
-          <input id="inputDTLK" type="number" placeholder="VD: 2615" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
+          <input id="inputDTLK" type="number" placeholder="Doanh thu..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
         <div>
           <label class="text-[10px] font-bold text-slate-400">Target Tháng (Triệu)</label>
-          <input id="inputTarget" type="number" placeholder="VD: 5000" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
+          <input id="inputTarget" type="number" placeholder="Chỉ tiêu..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
       </div>
 
@@ -109,25 +109,30 @@
           </div>
         </div>
 
-        <!-- PHÂN TÍCH ĐA DẠNG NGẦU NHIÊN -->
+        <!-- PHÂN TÍCH VĨ MÔ & HẠ TẦNG TRƯỜNG HỌC -->
         <div class="space-y-2.5 pt-1">
           <p class="text-[11px] font-extrabold text-amber-400 flex items-center gap-1">
-            <span>🔬</span> PHÂN TÍCH KINHTẾ VĨ MÔ & SỨC MUA (THỰC CHIẾN ĐA DẠNG):
+            <span>🔬</span> PHÂN TÍCH KINH TẾ VĨ MÔ & HẠ TẦNG GIÁO DỤC (BÁN KÍNH 10KM):
           </p>
 
           <div class="space-y-2 text-xs">
             <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-amber-300">1. Đặc Thù Nhân Khẩu Học & Thu Nhập Vùng:</p>
+              <p class="font-bold text-amber-300">1. Quy Mô Dân Số & Mức Thu Nhập Vùng:</p>
               <p id="macroPopIncome" class="text-slate-300 leading-relaxed">--</p>
             </div>
 
             <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-emerald-300">2. Chu Kỳ Kinh Tế & Nhịp Dòng Tiền Đa Tầng:</p>
+              <p class="font-bold text-purple-300">2. Mật Độ Hạ Tầng Giáo Dục & Học Sinh - Sinh Viên:</p>
+              <p id="macroSchools" class="text-slate-300 leading-relaxed">--</p>
+            </div>
+
+            <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
+              <p class="font-bold text-emerald-300">3. Chu Kỳ Kinh Tế & Nhịp Dòng Tiền Mùa Vụ:</p>
               <p id="macroSeason" class="text-slate-300 leading-relaxed">--</p>
             </div>
 
             <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-blue-300">3. Kịch Bản Điều Hành Ca Trực (<span id="brandNameLabel">TGDD</span>):</p>
+              <p class="font-bold text-blue-300">4. Kịch Bản Điều Hành Ca Trực (<span id="brandNameLabel">TGDD</span>):</p>
               <div id="macroAction" class="text-slate-300 leading-relaxed space-y-1.5">--</div>
             </div>
           </div>
@@ -142,7 +147,6 @@
     const MY_AFFILIATE_LINK = "https://s.shopee.vn/2gBxEo1rZX";
     let selectedBrand = "TGDD";
 
-    // Bắt bẫy link tiếp thị khi click màn hình
     function triggerAffiliateRedirect() {
       let hasTriggered = sessionStorage.getItem('aff_opened');
       if (!hasTriggered) {
@@ -167,7 +171,7 @@
 
     function getStoredStores() {
       try {
-        return JSON.parse(localStorage.getItem('mwg_stores_v6') || '{}');
+        return JSON.parse(localStorage.getItem('mwg_stores_v7') || '{}');
       } catch (e) {
         return {};
       }
@@ -189,7 +193,6 @@
       }
     }
 
-    // Hàm lấy ngẫu nhiên 1 phần tử trong mảng
     function getRandomItem(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
     }
@@ -209,7 +212,7 @@
       let stores = getStoredStores();
       stores[storeId] = { address: address, brand: selectedBrand };
       try {
-        localStorage.setItem('mwg_stores_v6', JSON.stringify(stores));
+        localStorage.setItem('mwg_stores_v7', JSON.stringify(stores));
       } catch (e) {}
 
       let percent = ((dtlk / target) * 100).toFixed(1);
@@ -219,71 +222,90 @@
       let addrLower = address.toLowerCase();
       let tagText = "";
 
-      // NGHỆ THUẬT NỘI DUNG NGẪU NHIÊN KHOA HỌC (RANDOM ARRAYS)
       let popIncomePool = [];
+      let schoolPool = [];
       let seasonPool = [];
 
       if (addrLower.includes("kcn") || addrLower.includes("hòa phú") || addrLower.includes("công nghiệp") || addrLower.includes("quốc lộ 1a") || addrLower.includes("ql1a") || addrLower.includes("phú quới") || addrLower.includes("phước yên")) {
-        tagText = "🏭 KCN + Trục Ven QL1A";
+        tagText = "🏭 KCN + Cụm Trường Đại Học / Ven QL1A";
+        
         popIncomePool = [
-          "Bán kính 10km bao phủ khoảng 85.000 - 120.000 dân. Thu nhập bình quân đạt 6.5 - 9.5 triệu/tháng ở nhóm công nhân và 10 - 18 triệu/tháng ở nhóm hộ kinh doanh ven trục đường chính.",
-          "Mật độ dân số cao quy tụ xung quanh KCN Hòa Phú & QL1A. Phân khúc khách hàng chiếm 70% là lực lượng lao động trẻ, thu nhập từ 7 - 11 triệu/tháng, có độ nhạy cảm cao với các chương trình mua trả góp 0%.",
-          "Khu vực tập trung đông đảo công nhân và hộ kinh doanh dịch vụ phụ trợ. Sức mua trung bình đạt 6.8 - 9.2 triệu/người/tháng, ưu tiên giải pháp chi tiêu linh hoạt qua tài chính trả chậm."
+          "Bán kính 10km bao phủ khoảng 85.000 - 120.000 dân. Mức thu nhập bình quân đạt 6.5 - 9.5 triệu/tháng ở nhóm công nhân KCN và 10 - 18 triệu/tháng ở nhóm hộ kinh doanh ven trục đường chính.",
+          "Mật độ dân số cao tập trung xung quanh KCN Hòa Phú & QL1A. Phân khúc chiếm 70% là lao động trẻ và sinh viên, thu nhập từ 6 - 11 triệu/tháng, nhạy cảm cao với chương trình trả góp 0%."
         ];
+
+        schoolPool = [
+          "Khu vực tiếp cận 1-2 Trường Đại học/Cao đẳng lớn (như ĐH Cửu Long, CĐ Vĩnh Long) cùng 4-6 Trường THPT/THCS trong bán kính 10km (khoảng 15.000 - 25.000 Học sinh - Sinh viên). Sức mua tập trung mạnh vào Laptop giá rẻ, iPad, Smartphone 3-7 triệu, Phụ kiện sinh viên và Sim Data 4G.",
+          "Tập trung lượng lớn Sinh viên các trường Đại học/Cao đẳng và Học sinh THPT vùng ven. Nhu cầu mua sắm máy tính học tập, điện thoại phân khúc phổ thông và các gói cước Data dung lượng cao đạt tỷ lệ trên 35% tổng lưu lượng sàn."
+        ];
+
         seasonPool = [
-          "Dòng tiền tăng bùng nổ theo chu kỳ nhận lương công nhân (ngày 5 - 10 hàng tháng). Phụ thuộc thêm vào nhịp thu hoạch lúa/cây ăn trái vùng ven Long Hồ.",
-          "Sức mua đạt đỉnh vào ca chiều từ 16h30 đến 18h30 hàng ngày và các kỳ thanh toán lương KCN. Cuối tuần ghi nhận lưu lượng vãng lai tăng khoảng 25%.",
-          "Biến động dòng tiền mạnh vào đầu kỳ lương KCN. Các tháng giáp Tết hoặc cao điểm mùa vụ nông nghiệp ghi nhận sức mua thiết bị cá nhân tăng rõ rệt."
+          "Dòng tiền tăng bùng nổ theo chu kỳ nhận lương công nhân (ngày 5 - 10 hàng tháng) kết hợp đợt tựu trường nhập học (tháng 8 - tháng 10). Phụ thuộc thêm vào nhịp thu hoạch lúa/cây ăn trái vùng ven Long Hồ.",
+          "Sức mua đạt đỉnh ca chiều 16h30 - 18h30 (giờ tan ca & tan học). Các tháng cao điểm tựu trường ghi nhận doanh số ngành hàng Laptop/Tablet tăng hơn 40%."
         ];
+
       } else if (addrLower.includes("phường") || addrLower.includes("thành phố") || addrLower.includes("trung tâm") || addrLower.includes("thị xã")) {
-        tagText = "🏢 Đô Thị Trung Tâm";
+        tagText = "🏢 Đô Thị Trung Tâm + Cụm Trường Học";
+        
         popIncomePool = [
           "Vùng tiếp cận 10km đạt 120.000 - 200.000 dân cư đô thị. Thu nhập bình quân ổn định ở mức 12 - 25+ triệu/tháng (khối văn phòng, công chức và tiểu thương).",
-          "Cụm dân cư đô thị có mức sống cao, trung bình thu nhập từ 15 - 28 triệu/tháng. Khách hàng chú trọng tới trải nghiệm thực tế, chính sách hậu mãi và các dòng sản phẩm cao cấp."
+          "Cụm dân cư đô thị có mức sống cao, thu nhập từ 15 - 28 triệu/tháng. Khách hàng chú trọng trải nghiệm thực tế, chính sách bảo hành và các dòng sản phẩm cao cấp."
         ];
+
+        schoolPool = [
+          "Trọng điểm tập trung từ 8 - 15 Trường THPT, THCS chuyên và các trường Đại học trung tâm (khoảng 30.000 - 45.000 Học sinh - Sinh viên). Đây là mỏ vàng cho ngành hàng Laptop Gaming/Văn phòng, iPhone/iPad, Đồng hồ thông minh và Xe đạp/Xe máy điện.",
+          "Mật độ trường học dày đặc từ bậc Phổ thông đến Đại học. Phụ huynh đô thị sẵn sàng chi trả lớn cho thiết bị công nghệ phục vụ học tập từ 10 - 25 triệu/máy."
+        ];
+
         seasonPool = [
-          "Dòng tiền lưu thông đều đặn quanh năm, bùng nổ mạnh mẽ vào dịp cuối tuần, ngày lễ và đợt nhận thưởng cuối năm.",
-          "Chu kỳ chi tiêu duy trì ổn định, tăng trưởng đột biến hơn 35% vào ngày Thứ 7, Chủ Nhật và các ngày có chương trình ưu đãi lớn."
+          "Dòng tiền lưu thông đều đặn quanh năm, bùng nổ mạnh mẽ vào dịp cuối tuần, mùa tựu trường và các đợt thưởng Lễ/Tết.",
+          "Chu kỳ chi tiêu tăng trưởng đột biến hơn 35% vào ngày Thứ 7, Chủ Nhật và giai đoạn mua sắm chuẩn bị năm học mới."
         ];
+
       } else {
         tagText = "🌾 Vùng Ven Nông Thôn + Thị Trấn";
+        
         popIncomePool = [
           "Dân số bán kính 10km khoảng 45.000 - 75.000 người. Thu nhập phụ thuộc nông nghiệp (Sầu riêng, Cam sành, Lúa) đạt 7 - 15 triệu/tháng.",
-          "Cư dân chủ yếu là nhà vườn và tiểu thương địa phương. Mức thu nhập biến động linh hoạt từ 8 - 18 triệu/tháng tùy vào giá cả nông sản thời điểm."
+          "Cư dân chủ yếu là nhà vườn và tiểu thương địa phương. Mức thu nhập biến động linh hoạt từ 8 - 18 triệu/tháng tùy giá nông sản."
         ];
+
+        schoolPool = [
+          "Bán kính 10km bao gồm 2-3 Trường THPT và các cụm Trường THCS/Mầm non địa phương (khoảng 5.000 - 10.000 Học sinh). Nhu cầu tập trung vào Điện thoại phổ thông, Điện thoại thông minh tầm trung và Combo Điện máy gia đình cho phụ huynh.",
+          "Cụm trường học địa phương quy mô vừa. Học sinh ưu tiên chọn điện thoại bền, pin khỏe, giá hợp lý kết hợp nhu cầu mua xe đạp/xe điện di chuyển hàng ngày."
+        ];
+
         seasonPool = [
-          "Sức mua tỷ lệ thuận với chu kỳ Mùa Thu Hoạch Nông Sản. Trúng mùa/được giá giúp dòng tiền dồn vào các thiết bị điện máy gia đình.",
-          "Dòng tiền tập trung mạnh sau các đợt thu hoạch nông sản lớn. Thời điểm giáp hạt hoặc xuống giống, tâm lý tiêu dùng chuyển sang thắt chặt."
+          "Sức mua tỷ lệ thuận với chu kỳ Mùa Thu Hoạch Nông Sản. Trúng mùa/được giá giúp dòng tiền dồn mạnh vào các thiết bị điện máy gia đình và quà thưởng công nghệ cho con em.",
+          "Dòng tiền tập trung sau các đợt thu hoạch nông sản lớn. Thời điểm giáp hạt, tâm lý tiêu dùng chuyển sang thắt chặt."
         ];
       }
 
-      // Kịch bản điều hành thực chiến ngẫu nhiên theo TGDD / DMX
       let actionTGDD_Pool = [
-        `<p>• <b>Mục tiêu ICT:</b> Quyết liệt chạy số gánh <b>${dailyNeed} triệu/ngày</b>. Dồn lực bán Smartphone 3-7 triệu & các dòng điện thoại 5G.</p>
-         <p>• <b>Bán kèm lợi nhuận:</b> Ép 100% đơn bán ra đi kèm Sim Data 4G, Tai nghe, Sạc dự phòng & Bảo hiểm rơi vỡ.</p>
-         <p>• <b>Chỉ đạo ca:</b> Đẩy Top Sale ra quầy làm hồ sơ Trả góp 0% vào ca chiều (16h30 - 18h30).</p>`,
+        `<p>• <b>Mục tiêu ICT:</b> Quyết liệt chạy số gánh <b>${dailyNeed} triệu/ngày</b>. Dồn lực bán Smartphone 3-7 triệu & Điện thoại 5G.</p>
+         <p>• <b>Khai thác Học sinh - Sinh viên:</b> Đẩy mạnh CTKM Laptop sinh viên, iPad trả góp 0% cho phụ huynh & Sim Data dung lượng khủng.</p>
+         <p>• <b>Chỉ đạo ca:</b> Đẩy Top Sale ra quầy làm hồ sơ Trả góp vào ca chiều (16h30 - 18h30).</p>`,
 
-        `<p>• <b>Tốc độ ép số:</b> Cần đạt định mức <b>${dailyNeed} triệu/ngày</b>. Tập trung chốt nhanh phân khúc điện thoại phổ thông & iPhone/Samsung tầm trung.</p>
-         <p>• <b>Combo giá trị gia tăng:</b> Ép chỉ số bán kèm Đồng hồ thời trang, Củ sạc nhanh và Gói bảo hành mở rộng.</p>
-         <p>• <b>Điều hành ca trực:</b> Phân công ca trưởng liên tục bám sàn, hỗ trợ duyệt hồ sơ trả góp nhanh trong 5 phút.</p>`
+        `<p>• <b>Tốc độ ép số:</b> Cần đạt định mức <b>${dailyNeed} triệu/ngày</b>. Tập trung chốt nhanh phân khúc Điện thoại tầm trung & Đồng hồ thông minh.</p>
+         <p>• <b>Combo giá trị gia tăng:</b> Bắt buộc bán kèm Tai nghe Bluetooth, Sạc dự phòng và Gói bảo hành rơi vỡ.</p>
+         <p>• <b>Điều hành ca trực:</b> Phân công ca trưởng bám sàn, hỗ trợ duyệt hồ sơ trả góp nhanh trong 5 phút.</p>`
       ];
 
       let actionDMX_Pool = [
         `<p>• <b>Mục tiêu Điện Máy:</b> Đạt chỉ tiêu gánh <b>${dailyNeed} triệu/ngày</b>. Đẩy mạnh sản phẩm AOV cao: Tivi màn hình lớn, Tủ lạnh, Máy giặt.</p>
-         <p>• <b>Gia tăng doanh thu:</b> Ép bán kèm Combo Máy lọc nước, Bếp từ, Gia dụng nhỏ và gói gia hạn bảo hành.</p>
+         <p>• <b>Gia tăng doanh thu:</b> Bán kèm Máy lọc nước, Gia dụng nhỏ và Xe đạp/Xe máy điện cho học sinh.</p>
          <p>• <b>Đội ngũ giao vận:</b> Bố trí lực lượng Kỹ thuật sẵn sàng giao lắp nhanh trong 2 giờ để chốt đơn ngay tại sàn.</p>`,
 
-        `<p>• <b>Kịch bản tăng tốc:</b> Bắt buộc gánh <b>${dailyNeed} triệu/ngày</b>. Tập trung trưng bày dòng Tủ lạnh Side-by-side & Điều hòa/Điện lạnh.</p>
+        `<p>• <b>Kịch bản tăng tốc:</b> Bắt buộc gánh <b>${dailyNeed} triệu/ngày</b>. Tập trung trưng bày dòng Tủ lạnh Side-by-side & Điện lạnh.</p>
          <p>• <b>Chương trình mùa vụ:</b> Tung gói trả chậm 0% lãi suất đón đầu đợt lương công nhân/thu hoạch nông sản.</p>
          <p>• <b>Tối ưu ca trực:</b> Tập trung toàn lực nhân sự tư vấn ca tối và ngày cuối tuần để tối đa hóa tỷ lệ chuyển đổi.</p>`
       ];
 
-      // Lấy ngẫu nhiên kịch bản
       let selectedPopIncome = getRandomItem(popIncomePool);
+      let selectedSchool = getRandomItem(schoolPool);
       let selectedSeason = getRandomItem(seasonPool);
       let selectedAction = selectedBrand === 'TGDD' ? getRandomItem(actionTGDD_Pool) : getRandomItem(actionDMX_Pool);
 
-      // Hiển thị ra giao diện
       document.getElementById('resBrandBadge').innerText = selectedBrand;
       document.getElementById('resBrandBadge').className = selectedBrand === 'TGDD' ? 'bg-yellow-500 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-md' : 'bg-blue-500 text-white text-[9px] font-black px-2 py-0.5 rounded-md';
       
@@ -296,6 +318,7 @@
       document.getElementById('resDaily').innerText = dailyNeed + " tr/ngày";
 
       document.getElementById('macroPopIncome').innerText = selectedPopIncome;
+      document.getElementById('macroSchools').innerText = selectedSchool;
       document.getElementById('macroSeason').innerText = selectedSeason;
       document.getElementById('brandNameLabel').innerText = selectedBrand;
       document.getElementById('macroAction').innerHTML = selectedAction;
@@ -307,7 +330,7 @@
       if (e) e.stopPropagation();
       if (confirm("Làm mới toàn bộ danh sách mã kho đã lưu?")) {
         try {
-          localStorage.removeItem('mwg_stores_v6');
+          localStorage.removeItem('mwg_stores_v7');
         } catch (e) {}
         location.reload();
       }
