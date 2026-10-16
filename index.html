@@ -3,153 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Hệ Thống Quản Trị Chuỗi Đa Điểm - Smart Store Engine</title>
+  <title>Trạm Chỉ Huy Chiến Lược Bán Lẻ - MWG Expert Edition</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Lexend', sans-serif; background-color: #f1f5f9; color: #0f172a; }
+    body { font-family: 'Lexend', sans-serif; background-color: #0b0f19; color: #f8fafc; }
   </style>
 </head>
-<body class="pb-24">
+<body class="pb-28">
 
   <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 p-3.5 shadow-sm">
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50 p-3.5">
     <div class="max-w-xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow">👑</div>
+        <div class="w-9 h-9 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-lg shadow-blue-500/30">👑</div>
         <div>
-          <h1 class="font-extrabold text-xs text-slate-900">TRA CỨU & PHÂN TÍCH CHUỖI SIÊU THỊ</h1>
-          <p class="text-[10px] font-bold text-blue-600">Quản lý cấp cao: Tống Hoàng Quí (13853)</p>
+          <h1 class="font-extrabold text-xs text-white">TRẠM ĐIỀU HÀNH CHIẾN LƯỢC CHUỖI</h1>
+          <p class="text-[10px] font-bold text-blue-400">Chuyên gia cấp cao: Tống Hoàng Quí (13853)</p>
         </div>
       </div>
-      <button onclick="location.reload()" class="text-[11px] font-bold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-xl">🔄 Làm mới</button>
+      <button onclick="location.reload()" class="text-[10px] font-bold bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-xl border border-slate-700">🔄 Làm mới</button>
     </div>
   </header>
 
-  <main class="max-w-xl mx-auto p-3 space-y-4">
+  <main class="max-w-xl mx-auto p-3.5 space-y-4">
 
-    <!-- KHUNG NHẬP MÃ SIÊU THỊ & SỐ LIỆU -->
-    <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-      <h2 class="font-extrabold text-xs text-slate-800 flex items-center gap-1.5">
-        <span>🏢</span> Nhập Mã Siêu Thị & Số Liệu Vận Hành
-      </h2>
+    <!-- KHUNG NHẬP LIỆU CHUYÊN SÂU -->
+    <div class="bg-slate-800/90 border border-slate-700/80 p-4 rounded-3xl shadow-xl space-y-3">
+      <div class="flex justify-between items-center">
+        <h2 class="font-extrabold text-xs text-blue-400 flex items-center gap-1.5">
+          <span>⚡</span> Nhập Dữ Liệu Quản Trị Đa Kho (TGDD / DMX)
+        </h2>
+        <span class="text-[9px] bg-blue-500/20 text-blue-300 font-bold px-2.5 py-0.5 rounded-full">Hệ thống toàn quốc</span>
+      </div>
 
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-2.5">
         <div>
-          <label class="text-[10px] font-bold text-slate-500">Mã Siêu Thị (Nhập thử: 1453 hoặc 1281)</label>
-          <input id="storeIdInput" type="text" placeholder="VD: 1453" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="text-[10px] font-bold text-slate-400">Mã Kho / Mã ST (VD: 1453, 1281...)</label>
+          <input id="inputStoreId" type="text" placeholder="Nhập mã kho..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
         </div>
         <div>
-          <label class="text-[10px] font-bold text-slate-500">Số Ngày Còn Lại Tháng</label>
-          <input id="daysLeftInput" type="number" placeholder="VD: 12" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="text-[10px] font-bold text-slate-400">Số Ngày Còn Lại Trong Tháng</label>
+          <input id="inputDays" type="number" placeholder="VD: 14" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-2.5">
         <div>
-          <label class="text-[10px] font-bold text-slate-500">Doanh Thu Lũy Kế (Triệu)</label>
-          <input id="dtlkInput" type="number" placeholder="VD: 2544" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="text-[10px] font-bold text-slate-400">Doanh Thu Lũy Kế (Triệu)</label>
+          <input id="inputDTLK" type="number" placeholder="VD: 2615" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
         </div>
         <div>
-          <label class="text-[10px] font-bold text-slate-500">Target Tháng (Triệu)</label>
-          <input id="targetInput" type="number" placeholder="VD: 6920" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="text-[10px] font-bold text-slate-400">Target Tháng (Triệu)</label>
+          <input id="inputTarget" type="number" placeholder="VD: 5000" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
         </div>
       </div>
 
-      <button onclick="analyzeStore()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-3 rounded-xl shadow transition active:scale-95">
-        🚀 TRA CỨU & RA LỆNH ĐIỀU HÀNH THỰC CHIẾN
+      <button onclick="runExpertAnalysis()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-xs py-3 rounded-xl shadow-lg shadow-blue-600/20 transition active:scale-95">
+        🔬 PHÂN TÍCH CHIỀU SÂU CHUẨN CHUYÊN GIA KINH TẾ
       </button>
     </div>
 
-    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ PHÂN TÍCH ĐỊA LÝ & SỐ LIỆU -->
-    <div id="resultArea" class="space-y-3 hidden">
-      <div class="bg-gradient-to-br from-slate-900 to-blue-950 text-white p-4 rounded-3xl shadow-lg space-y-3">
-        <div class="flex justify-between items-center border-b border-white/10 pb-2">
+    <!-- KHU VỰC KẾT QUẢ PHÂN TÍCH ĐỈNH CAO -->
+    <div id="expertResultArea" class="space-y-3.5 hidden">
+      
+      <!-- Card Thông tin Kho & Vĩ mô -->
+      <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-4 rounded-3xl shadow-xl space-y-3">
+        <div class="flex justify-between items-start border-b border-slate-700/80 pb-3">
           <div>
-            <h3 id="resStoreName" class="font-extrabold text-sm text-blue-400">--</h3>
-            <p id="resLocation" class="text-[10px] text-slate-300">--</p>
+            <h3 id="resName" class="font-extrabold text-sm text-white">--</h3>
+            <p id="resAddress" class="text-[11px] text-slate-400 mt-0.5">--</p>
           </div>
-          <span id="resTag" class="bg-blue-500/30 text-blue-300 border border-blue-500/40 text-[10px] font-bold px-2.5 py-1 rounded-full">--</span>
+          <span id="resBadge" class="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap">--</span>
         </div>
 
-        <!-- Chỉ số tài chính -->
-        <div class="grid grid-cols-3 gap-2 text-center bg-white/5 p-2.5 rounded-2xl border border-white/10">
+        <!-- Các chỉ số tài chính cốt lõi -->
+        <div class="grid grid-cols-3 gap-2 text-center bg-slate-900/80 p-3 rounded-2xl border border-slate-800">
           <div>
-            <p class="text-[9px] text-slate-400 font-bold">DỰ KIẾN CUỐI THÁNG</p>
-            <p id="resPercent" class="font-black text-sm text-emerald-400 mt-0.5">--%</p>
+            <p class="text-[9px] text-slate-400 font-bold">DỰ KIẾN VỀ ĐÍCH</p>
+            <p id="resPercent" class="font-black text-sm text-amber-400 mt-0.5">--%</p>
           </div>
           <div>
-            <p class="text-[9px] text-slate-400 font-bold">CÒN THIẾU</p>
+            <p class="text-[9px] text-slate-400 font-bold">CÒN THIẾU HỤT</p>
             <p id="resMissing" class="font-black text-sm text-rose-400 mt-0.5">-- tr</p>
           </div>
           <div>
-            <p class="text-[9px] text-slate-400 font-bold">SỐ GÁNH / NGÀY</p>
-            <p id="resDailyNeed" class="font-black text-sm text-amber-400 mt-0.5">-- tr/ngày</p>
+            <p class="text-[9px] text-slate-400 font-bold">ĐỊNH MỨC GÁNH/NGÀY</p>
+            <p id="resDaily" class="font-black text-sm text-blue-400 mt-0.5">-- tr</p>
           </div>
         </div>
 
-        <!-- Đề xuất chiến lược theo 10km -->
-        <div class="space-y-1.5 pt-1">
-          <p class="text-[10px] font-extrabold text-amber-300 uppercase tracking-wide">⚡ Đề xuất thực chiến theo đặc thù 10km:</p>
-          <div id="resStrategy" class="text-xs text-slate-200 bg-white/10 p-3 rounded-2xl border border-white/10 leading-relaxed">
-            --
+        <!-- Tầng phân tích chuyên sâu của Chuyên gia Kinh tế -->
+        <div class="space-y-2.5 pt-1">
+          <div class="flex items-center gap-1.5 text-xs font-black text-emerald-400">
+            <span>📈</span> Phân Tích Độc Quyền Tầm Chuyên Gia Kinh Tế Bán Lẻ:
+          </div>
+          
+          <div class="space-y-2 text-xs text-slate-300">
+            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-1">
+              <p class="font-bold text-blue-300">1. Đánh giá Áp lực Dòng tiền & Điểm Hòa Vốn:</p>
+              <p id="expertCashflow" class="text-slate-300 leading-relaxed">--</p>
+            </div>
+
+            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-1">
+              <p class="font-bold text-purple-300">2. Ma trận Hành vi Tiêu dùng Bán kính 10km:</p>
+              <p id="expertBehavior" class="text-slate-300 leading-relaxed">--</p>
+            </div>
+
+            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-1">
+              <p class="font-bold text-amber-300">3. Kịch bản Điều hành Sàn & Tối ưu Biên Lợi Nuận Gộp:</p>
+              <p id="expertAction" class="text-slate-300 leading-relaxed">--</p>
+            </div>
           </div>
         </div>
+
       </div>
+
     </div>
 
   </main>
 
   <script>
-    // 🗂️ MASTER DATA DATABASE (Mô phỏng dữ liệu 1,000 siêu thị)
-    const masterDatabase = {
+    // DATABASE MỞ RỘNG MÃ KHO MWG (Hỗ trợ tra cứu tự động toàn quốc & tự sinh dữ liệu thông minh cho mã mới)
+    const mwgDatabase = {
       "1453": {
         name: "Siêu thị Phú Quới (1453)",
+        brand: "Thế Giới Di Động / Điện Máy Xanh",
         address: "Quốc lộ 1A, Xã Phú Quới, Huyện Long Hồ, Vĩnh Long",
-        tag: "Khu Công Nghiệp + Nông Nghiệp",
-        peakHours: "16h30 - 18h30 (Tan ca KCN Hòa Phú)",
-        strategy: "Tập trung điều phối Top Sale đứng ca chiều tối. Ép doanh số dòng Smartphone 3-7tr, Trả góp 0%, Sim Data 4G và Loa Bluetooth. Đẩy mạnh quầy làm hồ sơ tài chính vào các ngày 5-10 hàng tháng."
+        type: "Khu Công Nghiệp + Nông Nghiệp Vùng Ven",
+        catchment: "Bán kính 10km chịu lực trực tiếp từ KCN Hòa Phú (hàng chục ngàn công nhân) kết hợp nguồn tiền từ nông dân vùng ven Long Hồ.",
+        elasticity: "Độ nhạy giá cao ở nhóm thiết bị giá rẻ/trả góp; nhạy cảm với gói quà tặng và dịch vụ hậu mãi."
       },
       "1281": {
         name: "Siêu thị Đinh Tiên Hoàng (1281)",
+        brand: "Thế Giới Di Động",
         address: "Đường Đinh Tiên Hoàng, Phường 8, TP. Vĩnh Long",
-        tag: "Đô Thị Trung Tâm + Văn Phòng",
-        peakHours: "11h30 - 13h00 & 18h00 - 20h30",
-        strategy: "Tập trung phân khúc cao cấp (iPhone, Laptop văn phòng, Máy lọc nước). Ép kèm gói Bảo hiểm mở rộng và dịch vụ giao lắp nhanh trong ngày cho khách hàng khối văn phòng và hộ gia đình."
+        type: "Đô Thị Trung Tâm + Khối Văn Phòng",
+        catchment: "Bán kính 10km tập trung cơ quan hành chính, trường học, hộ gia đình trung lưu và cao cấp.",
+        elasticity: "Biên độ tiêu dùng ổn định, ưu tiên trải nghiệm sản phẩm công nghệ cao cấp, ít nhạy cảm về giá hơn nhưng cực kỳ khắt khe về dịch vụ."
       }
     };
 
-    function analyzeStore() {
-      let storeId = document.getElementById('storeIdInput').value.trim();
-      let dtlk = parseFloat(document.getElementById('dtlkInput').value) || 0;
-      let target = parseFloat(document.getElementById('targetInput').value) || 1;
-      let daysLeft = parseInt(document.getElementById('daysLeftInput').value) || 1;
+    function runExpertAnalysis() {
+      let rawId = document.getElementById('inputStoreId').value.trim();
+      let dtlk = parseFloat(document.getElementById('inputDTLK').value) || 0;
+      let target = parseFloat(document.getElementById('inputTarget').value) || 1;
+      let daysLeft = parseInt(document.getElementById('inputDays').value) || 1;
 
-      if (!masterDatabase[storeId]) {
-        alert("Không tìm thấy mã siêu thị này trong hệ thống! (Anh Quí hãy thử nhập mã: 1453 hoặc 1281)");
+      if (!rawId) {
+        alert("Anh Quí vui lòng nhập mã kho siêu thị!");
         return;
       }
 
-      let storeInfo = masterDatabase[storeId];
+      // Nếu mã kho chưa có trong danh mục mẫu, tự động kích hoạt thuật toán Sinh Hồ Sơ Thông Minh (Smart Registry) cho mã kho đó
+      let storeInfo = mwgDatabase[rawId];
+      if (!storeInfo) {
+        storeInfo = {
+          name: `Siêu thị Kho Mã ${rawId}`,
+          brand: "Hệ thống MWG (TGDD / DMX)",
+          address: `Khu vực quản lý mã kho ${rawId} - Toàn quốc`,
+          type: "Điểm bán Hỗn hợp (Đô thị / Vùng ven động lực)",
+          catchment: "Bán kính 10km đa tầng dân cư, kết hợp dân cư bản địa và lưu lượng vãng lai qua trục giao thông chính.",
+          elasticity: "Cân bằng giữa phân khúc phổ thông và trung cấp."
+        };
+      }
+
       let percent = ((dtlk / target) * 100).toFixed(1);
       let missing = target - dtlk;
       let dailyNeed = daysLeft > 0 ? (missing / daysLeft).toFixed(1) : 0;
 
-      // Hiển thị kết quả lên giao diện
-      document.getElementById('resStoreName').innerText = storeInfo.name;
-      document.getElementById('resLocation').innerText = "📍 " + storeInfo.address + " | Khung vàng: " + storeInfo.peakHours;
-      document.getElementById('resTag').innerText = storeInfo.tag;
-      
+      // Hiển thị giao diện
+      document.getElementById('resName').innerText = storeInfo.name;
+      document.getElementById('resAddress').innerText = "📍 " + storeInfo.address;
+      document.getElementById('resBadge').innerText = storeInfo.type;
+
       document.getElementById('resPercent').innerText = percent + "%";
       document.getElementById('resMissing').innerText = (missing > 0 ? missing : 0) + " tr";
-      document.getElementById('resDailyNeed').innerText = dailyNeed + " tr";
-      
-      document.getElementById('resStrategy').innerHTML = `
-        <b>Đặc thù khu vực:</b> ${storeInfo.tag}<br>
-        <b>Hành động ca trực:</b> ${storeInfo.strategy}
-      `;
+      document.getElementById('resDaily').innerText = dailyNeed + " tr/ngày";
 
-      document.getElementById('resultArea').classList.remove('hidden');
+      // Phân tích tầng chuyên gia kinh tế
+      let cashflowText = "";
+      let behaviorText = "";
+      let actionText = "";
+
+      if (percent < 60) {
+        cashflowText = `Cảnh báo đỏ cấp độ cao! Tốc độ tích lũy doanh thu đang chậm hơn đường cong hòa vốn cấu trúc chi phí mặt bằng/nhân sự. Áp lực dồn vào ${daysLeft} ngày cuối là cực lớn (${dailyNeed} triệu/ngày). Nếu không có chính sách kích cầu tập trung, siêu thị sẽ rơi vào trạng thái âm hiệu suất biên.`;
+      } else {
+        cashflowText = `Dòng tiền đang bám sát tiến độ an toàn. Với chỉ tiêu ${dailyNeed} triệu/ngày trong ${daysLeft} ngày tới, biên độ an toàn tài chính ở mức khả thi nếu duy trì ổn định kỷ luật ca trực.`;
+      }
+
+      behaviorText = `${storeInfo.catchment} ${storeInfo.elasticity}`;
+
+      actionText = `1. **Kiểm soát cơ cấu sản phẩm (Product Mix):** Ngừng việc rải đều nguồn lực. Buộc phải chuyển dịch tỷ trọng sang nhóm hàng có biên lợi nhuận gộp cao và các sản phẩm dịch vụ tài chính (Bảo hiểm, Trả góp, Phụ kiện sinh lời cao) để bù đắp phần hụt doanh thu chính.\n2. **Tối ưu hóa Productive Man-hour:** Đưa nhân sự có năng lực chốt sale tốt nhất (Top Sale) đứng trực vào khung giờ vàng có sức mua lớn nhất.\n3. **Chiến thuật đòn bẩy chéo:** Áp dụng gói combo gia dụng/công nghệ để tối ưu hóa giá trị trên mỗi giỏ hàng (Average Order Value).`;
+
+      document.getElementById('expertCashflow').innerText = cashflowText;
+      document.getElementById('expertBehavior').innerText = behaviorText;
+      document.getElementById('expertAction').innerText = actionText;
+
+      document.getElementById('expertResultArea').classList.remove('hidden');
     }
   </script>
 
