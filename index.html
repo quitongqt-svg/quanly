@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Trạm Chỉ Huy Quản Lý Siêu Thị - MWG Smart Engine</title>
+  <title>Trạm Chỉ Huy Vĩ Mô MWG - TGDD & DMX Engine</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -13,13 +13,13 @@
 <body class="pb-28">
 
   <!-- HEADER -->
-  <header class="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-50 p-3.5">
+  <header class="bg-slate-900/95 border-b border-slate-800 sticky top-0 z-50 p-3.5 backdrop-blur">
     <div class="max-w-xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-lg shadow-blue-500/30">👑</div>
+        <div class="w-9 h-9 bg-gradient-to-tr from-amber-500 to-yellow-400 rounded-xl flex items-center justify-center text-slate-950 font-black text-sm shadow-lg shadow-amber-500/20">👑</div>
         <div>
-          <h1 class="font-extrabold text-xs text-white">TRẠM ĐIỀU HÀNH CHUỖI TỰ ĐỘNG</h1>
-          <p class="text-[10px] font-bold text-blue-400">Chuyên gia cấp cao: Tống Hoàng Quí (13853)</p>
+          <h1 class="font-extrabold text-xs text-white">TRẠM ĐIỀU HÀNH CHUỖI VĨ MÔ</h1>
+          <p class="text-[10px] font-bold text-amber-400">Chuyên gia cấp cao: Tống Hoàng Quí (13853)</p>
         </div>
       </div>
       <button onclick="clearStorage()" class="text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-rose-300 px-3 py-1.5 rounded-xl border border-slate-700">🗑️ Xóa bộ nhớ kho</button>
@@ -28,200 +28,74 @@
 
   <main class="max-w-xl mx-auto p-3.5 space-y-4">
 
-    <!-- 💡 PHẦN GHI CHÚ HƯỚNG DẪN CHO NGƯỜI SỬ DỤNG -->
-    <div class="bg-blue-950/60 border border-blue-500/40 p-3.5 rounded-2xl space-y-2 shadow-md">
+    <!-- HƯỚNG DẪN BẬC THẦY -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-amber-500/30 p-3.5 rounded-2xl space-y-1.5 shadow-md">
       <div class="flex items-center gap-2">
-        <span class="text-base">💡</span>
-        <h3 class="font-extrabold text-xs text-blue-300 uppercase tracking-wide">Hướng Dẫn Nhanh Cho Người Dùng</h3>
+        <span class="text-amber-400 font-bold text-sm">💡 CẨM NANG ĐIỀU HÀNH:</span>
       </div>
-      <ul class="text-[11px] text-slate-300 space-y-1.5 pl-4 list-disc leading-relaxed">
-        <li><b>Lần đầu dùng mã kho mới:</b> Nhập Mã Kho (VD: <code class="text-amber-300 font-bold">909</code>) và điền Địa chỉ siêu thị. Hệ thống sẽ tự lưu vào máy.</li>
-        <li><b>Từ lần sau:</b> Chỉ cần gõ đúng Mã Kho, địa chỉ sẽ tự động điền ra ngay lập tức!</li>
-        <li><b>Phân tích thông minh:</b> Dựa vào địa chỉ, hệ thống sẽ tự động quét bán kính 10km (KCN, Đô thị, Nông thôn) để đưa ra lệnh hành động thực chiến cho ca trực.</li>
-      </ul>
+      <p class="text-[11px] text-slate-300 leading-relaxed">
+        Chọn đúng **Mô hình Chuỗi (TGDD hoặc DMX)** và nhập **Mã kho + Địa chỉ**. Hệ thống sẽ kích hoạt AI phân tích **Mùa vụ nông sản, Dân số, Mức thu nhập vùng** và bóc tách kịch bản gánh số cho từng ca trực!
+      </p>
     </div>
 
-    <!-- KHUNG NHẬP LIỆU -->
-    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-3xl shadow-xl space-y-3">
-      <div class="flex justify-between items-center">
-        <h2 class="font-extrabold text-xs text-blue-400 flex items-center gap-1.5">
-          <span>🏢</span> Nhập Mã Kho & Số Liệu Vận Hành
-        </h2>
-        <span id="storeStatus" class="text-[9px] bg-slate-700 text-slate-300 font-bold px-2.5 py-0.5 rounded-full">Sẵn sàng</span>
+    <!-- KHUNG NHẬP LIỆU TOÀN DIỆN -->
+    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-3xl shadow-xl space-y-3.5">
+      
+      <!-- CHỌN CHUỖI ST -->
+      <div>
+        <label class="text-[10px] font-extrabold text-amber-400 uppercase tracking-wider">1. CHỌN MÔ HÌNH CHUỖI SIÊU THỊ</label>
+        <div class="grid grid-cols-2 gap-2 mt-1.5">
+          <button id="btnTGDD" onclick="selectBrand('TGDD')" class="py-2.5 px-3 rounded-xl border border-yellow-500/50 bg-yellow-500/10 text-yellow-300 font-black text-xs flex items-center justify-center gap-2 transition active:scale-95">
+            <span>📱</span> THẾ GIỚI DI ĐỘNG
+          </button>
+          <button id="btnDMX" onclick="selectBrand('DMX')" class="py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95">
+            <span>📺</span> ĐIỆN MÁY XANH
+          </button>
+        </div>
       </div>
 
+      <!-- MÃ KHO & SỐ NGÀY -->
       <div class="grid grid-cols-2 gap-2.5">
         <div>
-          <label class="text-[10px] font-bold text-slate-400">Mã Kho (Ví dụ: 909, 1453)</label>
-          <input id="inputStoreId" type="text" oninput="checkAutoStore()" placeholder="Nhập mã kho..." class="w-full bg-slate-900 text-amber-400 text-xs p-2.5 rounded-xl border border-slate-700 font-black mt-1 focus:outline-none focus:border-blue-500">
+          <label class="text-[10px] font-bold text-slate-400">Mã Kho (Ví dụ: 1453, 909)</label>
+          <input id="inputStoreId" type="text" oninput="checkAutoStore()" placeholder="Nhập mã kho..." class="w-full bg-slate-900 text-amber-400 text-xs p-2.5 rounded-xl border border-slate-700 font-black mt-1 focus:outline-none focus:border-amber-500">
         </div>
         <div>
           <label class="text-[10px] font-bold text-slate-400">Số Ngày Còn Lại Trong Tháng</label>
-          <input id="inputDays" type="number" placeholder="VD: 14" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
+          <input id="inputDays" type="number" placeholder="VD: 14" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
       </div>
 
+      <!-- ĐỊA CHỈ & MÙA VỤ -->
       <div>
-        <label class="text-[10px] font-bold text-slate-400">Tên & Địa Chỉ Siêu Thị (Nhập 1 lần, lần sau tự nhớ)</label>
-        <input id="inputAddress" type="text" placeholder="VD: DMX Quốc Lộ 1A, Xã Phú Quới, Long Hồ, Vĩnh Long..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-medium mt-1 focus:outline-none focus:border-blue-500">
+        <div class="flex justify-between items-center">
+          <label class="text-[10px] font-bold text-slate-400">Tên & Địa Chỉ Siêu Thị (Tự nhớ)</label>
+          <span id="storeStatus" class="text-[9px] bg-slate-700 text-slate-300 font-bold px-2 py-0.5 rounded-full">Sẵn sàng</span>
+        </div>
+        <input id="inputAddress" type="text" placeholder="VD: Chợ Phước Yên, Phú Quới, Long Hồ, Vĩnh Long..." class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-medium mt-1 focus:outline-none focus:border-amber-500">
       </div>
 
       <div class="grid grid-cols-2 gap-2.5">
         <div>
           <label class="text-[10px] font-bold text-slate-400">Doanh Thu Lũy Kế (Triệu)</label>
-          <input id="inputDTLK" type="number" placeholder="VD: 2615" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
+          <input id="inputDTLK" type="number" placeholder="VD: 2615" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
         <div>
           <label class="text-[10px] font-bold text-slate-400">Target Tháng (Triệu)</label>
-          <input id="inputTarget" type="number" placeholder="VD: 5000" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-blue-500">
+          <input id="inputTarget" type="number" placeholder="VD: 5000" class="w-full bg-slate-900 text-white text-xs p-2.5 rounded-xl border border-slate-700 font-bold mt-1 focus:outline-none focus:border-amber-500">
         </div>
       </div>
 
-      <button onclick="runAnalysis()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-3 rounded-xl shadow-lg shadow-blue-600/30 transition active:scale-95">
-        🚀 PHÂN TÍCH THEO ĐỊA CHỈ & RA LỆNH THỰC CHIẾN
+      <button onclick="runMacroAnalysis()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black text-xs py-3 rounded-xl shadow-lg shadow-amber-500/20 transition active:scale-95">
+        🚀 PHÂN TÍCH VĨ MÔ VÙNG & RA LỆNH ĐIỀU HÀNH
       </button>
     </div>
 
-    <!-- KẾT QUẢ PHÂN TÍCH -->
+    <!-- KẾT QUẢ PHÂN TÍCH VĨ MÔ CHUYÊN GIA -->
     <div id="resultArea" class="space-y-3.5 hidden">
-      <div class="bg-slate-800 border border-slate-700 p-4 rounded-3xl shadow-xl space-y-3">
+      <div class="bg-slate-800 border border-slate-700 p-4 rounded-3xl shadow-xl space-y-3.5">
+        
         <div class="flex justify-between items-start border-b border-slate-700/80 pb-3">
           <div>
-            <h3 id="resName" class="font-extrabold text-sm text-blue-400">--</h3>
-            <p id="resAddress" class="text-[11px] text-slate-300 mt-0.5">--</p>
-          </div>
-          <span id="resTag" class="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap">--</span>
-        </div>
-
-        <!-- CÁC CHỈ SỐ -->
-        <div class="grid grid-cols-3 gap-2 text-center bg-slate-900/80 p-3 rounded-2xl border border-slate-800">
-          <div>
-            <p class="text-[9px] text-slate-400 font-bold">DỰ KIẾN VỀ ĐÍCH</p>
-            <p id="resPercent" class="font-black text-sm text-amber-400 mt-0.5">--%</p>
-          </div>
-          <div>
-            <p class="text-[9px] text-slate-400 font-bold">CÒN THIẾU HỤT</p>
-            <p id="resMissing" class="font-black text-sm text-rose-400 mt-0.5">-- tr</p>
-          </div>
-          <div>
-            <p class="text-[9px] text-slate-400 font-bold">SỐ GÁNH / NGÀY</p>
-            <p id="resDaily" class="font-black text-sm text-blue-400 mt-0.5">-- tr/ngày</p>
-          </div>
-        </div>
-
-        <!-- BẢN PHÂN TÍCH CHUYÊN GIA DỰA TRÊN ĐỊA CHỈ -->
-        <div class="space-y-2 pt-1">
-          <p class="text-[11px] font-extrabold text-emerald-400 flex items-center gap-1">
-            <span>🔬</span> PHÂN TÍCH CHUYÊN GIA DỰA TRÊN ĐẶC THÙ BÁN KÍNH 10KM:
-          </p>
-
-          <div class="space-y-2 text-xs">
-            <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-amber-300">1. Đặc thù vị trí địa lý & Khách hàng:</p>
-              <p id="geoAnalysis" class="text-slate-300 leading-relaxed">--</p>
-            </div>
-
-            <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-purple-300">2. Khung giờ vàng & Nhóm hàng trọng điểm:</p>
-              <p id="peakAnalysis" class="text-slate-300 leading-relaxed">--</p>
-            </div>
-
-            <div class="bg-slate-900/80 p-3 rounded-2xl border border-slate-800 space-y-1">
-              <p class="font-bold text-blue-300">3. Kịch bản điều hành thực chiến cho Quản lý:</p>
-              <p id="actionAnalysis" class="text-slate-300 leading-relaxed">--</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </main>
-
-  <script>
-    function getStoredStores() {
-      return JSON.parse(localStorage.getItem('mwg_stores') || '{}');
-    }
-
-    function checkAutoStore() {
-      let storeId = document.getElementById('inputStoreId').value.trim();
-      let stores = getStoredStores();
-      let statusSpan = document.getElementById('storeStatus');
-
-      if (stores[storeId]) {
-        document.getElementById('inputAddress').value = stores[storeId];
-        statusSpan.innerText = "⚡ Đã nhớ địa chỉ";
-        statusSpan.className = "text-[9px] bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-0.5 rounded-full";
-      } else {
-        document.getElementById('inputAddress').value = "";
-        statusSpan.innerText = "Mã mới";
-        statusSpan.className = "text-[9px] bg-slate-700 text-slate-300 font-bold px-2.5 py-0.5 rounded-full";
-      }
-    }
-
-    function runAnalysis() {
-      let storeId = document.getElementById('inputStoreId').value.trim();
-      let address = document.getElementById('inputAddress').value.trim();
-      let dtlk = parseFloat(document.getElementById('inputDTLK').value) || 0;
-      let target = parseFloat(document.getElementById('inputTarget').value) || 1;
-      let daysLeft = parseInt(document.getElementById('inputDays').value) || 1;
-
-      if (!storeId || !address) {
-        alert("Anh Quí vui lòng nhập đủ Mã kho và Địa chỉ siêu thị!");
-        return;
-      }
-
-      let stores = getStoredStores();
-      stores[storeId] = address;
-      localStorage.setItem('mwg_stores', JSON.stringify(stores));
-      checkAutoStore();
-
-      let percent = ((dtlk / target) * 100).toFixed(1);
-      let missing = target - dtlk;
-      let dailyNeed = daysLeft > 0 ? (missing / daysLeft).toFixed(1) : 0;
-
-      let addrLower = address.toLowerCase();
-      let geoText = "", peakText = "", actionText = "", tagText = "";
-
-      if (addrLower.includes("kcn") || addrLower.includes("hòa phú") || addrLower.includes("công nghiệp") || addrLower.includes("quốc lộ 1a") || addrLower.includes("ql1a")) {
-        tagText = "🏭 Khu Công Nghiệp + Trục Giao Thông";
-        geoText = "Siêu thị nằm sát trục giao thông chính hoặc cận kề Khu Công Nghiệp. Mật độ cư dân tập trung đông công nhân, người lao động tự do và lưu lượng vãng lai lớn. Mức độ nhạy cảm về giá và chương trình trả góp 0% rất cao.";
-        peakText = "Khung giờ vàng: 16h30 - 18h30 (Giờ công nhân tan ca) & Các ngày 5 - 10 hàng tháng (Kỳ nhận lương). Nhóm hàng mũi nhọn: Smartphone 3-7 triệu, Sim Data 4G, Phụ kiện, Loa kéo, Gia dụng nhỏ.";
-        actionText = "• Dồn Top Sale đứng ca chiều tối.\n• Mở tối đa bàn hỗ trợ Trả góp & Sim Data.\n• Ép bán kèm combo cá nhân (Tai nghe, Sạc dự phòng, Gói bảo vệ máy).";
-      } else if (addrLower.includes("phường") || addrLower.includes("thành phố") || addrLower.includes("trung tâm") || addrLower.includes("thị xã")) {
-        tagText = "🏢 Đô Thị Trung Tâm + Văn Phòng";
-        geoText = "Siêu thị tọa lạc tại vùng đô thị sầm uất, bao quanh bởi khối cơ quan, trường học và hộ gia đình có thu nhập ổn định. Khách hàng đòi hỏi cao về trải nghiệm, chính sách bảo hành và chất lượng dịch vụ.";
-        peakText = "Khung giờ vàng: 11h30 - 13h00 & 18h00 - 20h30 (Cuối tuần sức mua tăng 40%). Nhóm hàng mũi nhọn: Flagship (iPhone/Samsung S), Laptop, Tivi màn hình lớn, Máy lọc nước, Gia dụng cao cấp.";
-        actionText = "• Tập trung tư vấn gói Bảo hiểm mở rộng & Dịch vụ kỹ thuật tận nhà.\n• Đẩy mạnh tư vấn Combo gia đình (Tivi + Tủ lạnh + Máy giặt).\n• Chăm sóc tập khách hàng VIP quay lại.";
-      } else {
-        tagText = "🌾 Vùng Ven Nông Thôn + Thị Trấn";
-        geoText = "Vùng tiếp cận 10km chủ yếu là cư dân làm vườn, nông nghiệp hoặc tiểu thương địa phương. Sức mua biến động mạnh theo mùa vụ thu hoạch nông sản và tâm lý tiêu dùng tích lũy.";
-        peakText = "Khung giờ vàng: 8h00 - 10h30 sáng & Chiều mát. Nhóm hàng mũi nhọn: Điện tử - Điện lạnh gia đình, Máy lọc nước, Điện thoại phổ thông, Loa karaoke.";
-        actionText = "• Đẩy mạnh trưng bày Combo Điện máy đón đầu mùa thu hoạch.\n• Tối ưu hóa thủ tục mua trả chậm/trả góp linh hoạt.\n• Bố trí giao hàng và lắp đặt nhanh ngay trong ngày.";
-      }
-
-      document.getElementById('resName').innerText = `Kho ${storeId}`;
-      document.getElementById('resAddress').innerText = "📍 " + address;
-      document.getElementById('resTag').innerText = tagText;
-
-      document.getElementById('resPercent').innerText = percent + "%";
-      document.getElementById('resMissing').innerText = (missing > 0 ? missing : 0) + " tr";
-      document.getElementById('resDaily').innerText = dailyNeed + " tr";
-
-      document.getElementById('geoAnalysis').innerText = geoText;
-      document.getElementById('peakAnalysis').innerText = peakText;
-      document.getElementById('actionAnalysis').innerText = actionText;
-
-      document.getElementById('resultArea').classList.remove('hidden');
-    }
-
-    function clearStorage() {
-      if (confirm("Làm mới toàn bộ danh sách mã kho đã lưu?")) {
-        localStorage.removeItem('mwg_stores');
-        location.reload();
-      }
-    }
-  </script>
-
-</body>
-</html>
+            <div class="flex items-center gap-2">
+              <span id="resBrandBadge" class="bg-yellow-500 text-slate-950 text
