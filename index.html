@@ -3,92 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Trạm Chỉ Huy Phú Quới - 13853</title>
+  <title>Hệ Thống Quản Trị Chuỗi Đa Điểm - Smart Store Engine</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Lexend', sans-serif; background-color: #f8fafc; color: #0f172a; }
+    body { font-family: 'Lexend', sans-serif; background-color: #f1f5f9; color: #0f172a; }
   </style>
 </head>
 <body class="pb-24">
 
-  <!-- HEADER CHUYÊN NGHIỆP -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 p-3 shadow-sm">
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 p-3.5 shadow-sm">
     <div class="max-w-xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-md">👑</div>
+        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow">👑</div>
         <div>
-          <h1 class="font-extrabold text-xs text-slate-900">TRẠM QUẢN LÝ SÀN PHÚ QUỚI</h1>
-          <p class="text-[10px] font-bold text-blue-600">13853 - Tống Hoàng Quí • Cấp Cao</p>
+          <h1 class="font-extrabold text-xs text-slate-900">TRA CỨU & PHÂN TÍCH CHUỖI SIÊU THỊ</h1>
+          <p class="text-[10px] font-bold text-blue-600">Quản lý cấp cao: Tống Hoàng Quí (13853)</p>
         </div>
       </div>
-      <button onclick="location.reload()" class="text-[11px] font-bold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-xl active:scale-95">🔄 Làm mới</button>
+      <button onclick="location.reload()" class="text-[11px] font-bold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-xl">🔄 Làm mới</button>
     </div>
   </header>
 
   <main class="max-w-xl mx-auto p-3 space-y-4">
 
-    <!-- 5 Ô NHẬP DỮ LIỆU RIÊNG BIỆT -->
-    <div class="grid grid-cols-1 gap-3">
+    <!-- KHUNG NHẬP MÃ SIÊU THỊ & SỐ LIỆU -->
+    <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+      <h2 class="font-extrabold text-xs text-slate-800 flex items-center gap-1.5">
+        <span>🏢</span> Nhập Mã Siêu Thị & Số Liệu Vận Hành
+      </h2>
 
-      <!-- Ô 1: DOANH THU -->
-      <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-        <div class="flex justify-between items-center">
-          <h3 class="font-extrabold text-xs text-blue-700 flex items-center gap-1.5"><span>📈</span> 1. Doanh Thu & Lũy Kế</h3>
-          <span class="text-[9px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-bold">Ô Nhập 1</span>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-[10px] font-bold text-slate-500">Mã Siêu Thị (Nhập thử: 1453 hoặc 1281)</label>
+          <input id="storeIdInput" type="text" placeholder="VD: 1453" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
-        <textarea id="boxDT" rows="2" placeholder="Dán báo cáo Doanh thu vào đây..." class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
-        <button onclick="processBox('DT')" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-xl shadow active:scale-95 transition">Bấm Xem Doanh Thu</button>
+        <div>
+          <label class="text-[10px] font-bold text-slate-500">Số Ngày Còn Lại Tháng</label>
+          <input id="daysLeftInput" type="number" placeholder="VD: 12" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
       </div>
 
-      <!-- Ô 2: GIỜ CÔNG -->
-      <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-        <div class="flex justify-between items-center">
-          <h3 class="font-extrabold text-xs text-purple-700 flex items-center gap-1.5"><span>⏱️</span> 2. Giờ Công Nhân Viên (470 dòng)</h3>
-          <span class="text-[9px] bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-bold">Ô Nhập 2</span>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-[10px] font-bold text-slate-500">Doanh Thu Lũy Kế (Triệu)</label>
+          <input id="dtlkInput" type="number" placeholder="VD: 2544" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
-        <textarea id="boxGC" rows="2" placeholder="Dán bảng 470 dòng Giờ công vào đây..." class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"></textarea>
-        <button onclick="processBox('GC')" class="w-full bg-purple-600 text-white font-bold text-xs py-2 rounded-xl shadow active:scale-95 transition">Bấm Bóc Tách Giờ Công</button>
+        <div>
+          <label class="text-[10px] font-bold text-slate-500">Target Tháng (Triệu)</label>
+          <input id="targetInput" type="number" placeholder="VD: 6920" class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 font-bold mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
       </div>
 
-      <!-- Ô 3: THI ĐUA SIÊU THỊ -->
-      <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-        <div class="flex justify-between items-center">
-          <h3 class="font-extrabold text-xs text-amber-700 flex items-center gap-1.5"><span>🏆</span> 3. Thi Đua Siêu Thị (26 Chương Trình)</h3>
-          <span class="text-[9px] bg-amber-50 text-amber-600 px-2 py-0.5 rounded-full font-bold">Ô Nhập 3</span>
-        </div>
-        <textarea id="boxTDST" rows="2" placeholder="Dán báo cáo Thi đua siêu thị vào đây..." class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"></textarea>
-        <button onclick="processBox('TDST')" class="w-full bg-amber-600 text-white font-bold text-xs py-2 rounded-xl shadow active:scale-95 transition">Bấm Xem Thi Đua Siêu Thị</button>
-      </div>
-
-      <!-- Ô 4: THI ĐUA NHÂN VIÊN -->
-      <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-        <div class="flex justify-between items-center">
-          <h3 class="font-extrabold text-xs text-emerald-700 flex items-center gap-1.5"><span>👥</span> 4. Thi Đua & Xếp Hạng Nhân Viên</h3>
-          <span class="text-[9px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-bold">Ô Nhập 4</span>
-        </div>
-        <textarea id="boxTDNV" rows="2" placeholder="Dán bảng Xếp hạng nhân viên vào đây..." class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
-        <button onclick="processBox('TDNV')" class="w-full bg-emerald-600 text-white font-bold text-xs py-2 rounded-xl shadow active:scale-95 transition">Bấm Lọc Top 1 Nhân Viên</button>
-      </div>
-
-      <!-- Ô 5: NHÓM HÀNG -->
-      <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-        <div class="flex justify-between items-center">
-          <h3 class="font-extrabold text-xs text-rose-700 flex items-center gap-1.5"><span>📦</span> 5. Nhóm Hàng Chi Tiết</h3>
-          <span class="text-[9px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full font-bold">Ô Nhập 5</span>
-        </div>
-        <textarea id="boxNH" rows="2" placeholder="Dán báo cáo Nhóm hàng vào đây..." class="w-full bg-slate-50 text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 resize-none"></textarea>
-        <button onclick="processBox('NH')" class="w-full bg-rose-600 text-white font-bold text-xs py-2 rounded-xl shadow active:scale-95 transition">Bấm Xem Nhóm Hàng</button>
-      </div>
-
+      <button onclick="analyzeStore()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-3 rounded-xl shadow transition active:scale-95">
+        🚀 TRA CỨU & RA LỆNH ĐIỀU HÀNH THỰC CHIẾN
+      </button>
     </div>
 
-    <!-- KHU VỰC KẾT QUẢ HIỂN THỊ TRỰC QUAN -->
-    <div class="space-y-2 pt-2">
-      <h3 class="font-extrabold text-xs text-slate-500 uppercase tracking-wider px-1">📊 KẾT QUẢ BÓC TÁCH CHI TIẾT</h3>
-      <div id="outputContainer" class="space-y-3">
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center text-slate-400 text-xs shadow-sm">
-          Chưa có dữ liệu. Anh Quí dán số vào ô tương ứng rồi bấm nút để xem kết quả xuất ra ngay lập tức nhé!
+    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ PHÂN TÍCH ĐỊA LÝ & SỐ LIỆU -->
+    <div id="resultArea" class="space-y-3 hidden">
+      <div class="bg-gradient-to-br from-slate-900 to-blue-950 text-white p-4 rounded-3xl shadow-lg space-y-3">
+        <div class="flex justify-between items-center border-b border-white/10 pb-2">
+          <div>
+            <h3 id="resStoreName" class="font-extrabold text-sm text-blue-400">--</h3>
+            <p id="resLocation" class="text-[10px] text-slate-300">--</p>
+          </div>
+          <span id="resTag" class="bg-blue-500/30 text-blue-300 border border-blue-500/40 text-[10px] font-bold px-2.5 py-1 rounded-full">--</span>
+        </div>
+
+        <!-- Chỉ số tài chính -->
+        <div class="grid grid-cols-3 gap-2 text-center bg-white/5 p-2.5 rounded-2xl border border-white/10">
+          <div>
+            <p class="text-[9px] text-slate-400 font-bold">DỰ KIẾN CUỐI THÁNG</p>
+            <p id="resPercent" class="font-black text-sm text-emerald-400 mt-0.5">--%</p>
+          </div>
+          <div>
+            <p class="text-[9px] text-slate-400 font-bold">CÒN THIẾU</p>
+            <p id="resMissing" class="font-black text-sm text-rose-400 mt-0.5">-- tr</p>
+          </div>
+          <div>
+            <p class="text-[9px] text-slate-400 font-bold">SỐ GÁNH / NGÀY</p>
+            <p id="resDailyNeed" class="font-black text-sm text-amber-400 mt-0.5">-- tr/ngày</p>
+          </div>
+        </div>
+
+        <!-- Đề xuất chiến lược theo 10km -->
+        <div class="space-y-1.5 pt-1">
+          <p class="text-[10px] font-extrabold text-amber-300 uppercase tracking-wide">⚡ Đề xuất thực chiến theo đặc thù 10km:</p>
+          <div id="resStrategy" class="text-xs text-slate-200 bg-white/10 p-3 rounded-2xl border border-white/10 leading-relaxed">
+            --
+          </div>
         </div>
       </div>
     </div>
@@ -96,68 +101,55 @@
   </main>
 
   <script>
-    function processBox(type) {
-      let boxIdMap = { 'DT': 'boxDT', 'GC': 'boxGC', 'TDST': 'boxTDST', 'TDNV': 'boxTDNV', 'NH': 'boxNH' };
-      let titleMap = { 
-        'DT': '📈 BÁO CÁO DOANH THU & LŨY KẾ', 
-        'GC': '⏱️ BẢNG TỔNG HỢP GIỜ CÔNG NHÂN VIÊN', 
-        'TDST': '🏆 BÁO CÁO THI ĐUA SIÊU THỊ', 
-        'TDNV': '👥 XẾP HẠNG & TOP 1 NHÂN VIÊN', 
-        'NH': '📦 BÁO CÁO NHÓM HÀNG CHI TIẾT' 
-      };
-      let colorMap = { 'DT': 'border-blue-500 bg-blue-50/30', 'GC': 'border-purple-500 bg-purple-50/30', 'TDST': 'border-amber-500 bg-amber-50/30', 'TDNV': 'border-emerald-500 bg-emerald-50/30', 'NH': 'border-rose-500 bg-rose-50/30' };
+    // 🗂️ MASTER DATA DATABASE (Mô phỏng dữ liệu 1,000 siêu thị)
+    const masterDatabase = {
+      "1453": {
+        name: "Siêu thị Phú Quới (1453)",
+        address: "Quốc lộ 1A, Xã Phú Quới, Huyện Long Hồ, Vĩnh Long",
+        tag: "Khu Công Nghiệp + Nông Nghiệp",
+        peakHours: "16h30 - 18h30 (Tan ca KCN Hòa Phú)",
+        strategy: "Tập trung điều phối Top Sale đứng ca chiều tối. Ép doanh số dòng Smartphone 3-7tr, Trả góp 0%, Sim Data 4G và Loa Bluetooth. Đẩy mạnh quầy làm hồ sơ tài chính vào các ngày 5-10 hàng tháng."
+      },
+      "1281": {
+        name: "Siêu thị Đinh Tiên Hoàng (1281)",
+        address: "Đường Đinh Tiên Hoàng, Phường 8, TP. Vĩnh Long",
+        tag: "Đô Thị Trung Tâm + Văn Phòng",
+        peakHours: "11h30 - 13h00 & 18h00 - 20h30",
+        strategy: "Tập trung phân khúc cao cấp (iPhone, Laptop văn phòng, Máy lọc nước). Ép kèm gói Bảo hiểm mở rộng và dịch vụ giao lắp nhanh trong ngày cho khách hàng khối văn phòng và hộ gia đình."
+      }
+    };
 
-      let text = document.getElementById(boxIdMap[type]).value.trim();
-      if (!text) {
-        alert("Anh Quí chưa dán dữ liệu vào ô này!");
+    function analyzeStore() {
+      let storeId = document.getElementById('storeIdInput').value.trim();
+      let dtlk = parseFloat(document.getElementById('dtlkInput').value) || 0;
+      let target = parseFloat(document.getElementById('targetInput').value) || 1;
+      let daysLeft = parseInt(document.getElementById('daysLeftInput').value) || 1;
+
+      if (!masterDatabase[storeId]) {
+        alert("Không tìm thấy mã siêu thị này trong hệ thống! (Anh Quí hãy thử nhập mã: 1453 hoặc 1281)");
         return;
       }
 
-      let container = document.getElementById('outputContainer');
+      let storeInfo = masterDatabase[storeId];
+      let percent = ((dtlk / target) * 100).toFixed(1);
+      let missing = target - dtlk;
+      let dailyNeed = daysLeft > 0 ? (missing / daysLeft).toFixed(1) : 0;
+
+      // Hiển thị kết quả lên giao diện
+      document.getElementById('resStoreName').innerText = storeInfo.name;
+      document.getElementById('resLocation').innerText = "📍 " + storeInfo.address + " | Khung vàng: " + storeInfo.peakHours;
+      document.getElementById('resTag').innerText = storeInfo.tag;
       
-      // Nếu là bảng Giờ công, xử lý bóc tách tên nhân viên và tổng giờ gọn gàng
-      let processedContent = "";
-      if (type === 'GC') {
-        let lines = text.split('\n').filter(l => l.trim().length > 0);
-        let staffHours = {};
-        lines.forEach(line => {
-          if (line.includes("Ca 1") || line.includes("Ca 2") || line.includes("Ca 3") || line.includes("Ca 4") || line.includes("Ca 5")) {
-            let parts = line.split('\t');
-            if (parts.length >= 9) {
-              let name = parts[3] || "Nhân viên";
-              let hours = parseFloat(parts[8]) || 0;
-              if (!staffHours[name]) staffHours[name] = 0;
-              staffHours[name] += hours;
-            }
-          }
-        });
-
-        let staffListHtml = Object.keys(staffHours).map(name => `
-          <div class="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-xs">
-            <span class="font-bold text-slate-800">${name}</span>
-            <span class="font-extrabold text-purple-700">${staffHours[name]} Giờ công</span>
-          </div>
-        `).join('');
-
-        processedContent = `<div class="space-y-1">${staffListHtml || '<p class="text-xs text-slate-600">Đã nhận dữ liệu giờ công.</p>'}</div>`;
-      } else {
-        processedContent = `<div class="text-xs text-slate-700 whitespace-pre-line leading-relaxed max-h-60 overflow-y-auto bg-white p-3 rounded-xl border border-slate-200">${text}</div>`;
-      }
-
-      // Tạo khung hiển thị kết quả riêng biệt cho từng ô
-      let card = document.createElement('div');
-      card.className = `bg-white p-4 rounded-2xl border-2 ${colorMap[type]} shadow-sm space-y-2`;
-      card.innerHTML = `
-        <div class="flex justify-between items-center border-b border-slate-200 pb-2">
-          <span class="font-extrabold text-xs text-slate-900">${titleMap[type]}</span>
-          <span class="text-[10px] text-slate-400 font-bold">${new Date().toLocaleTimeString()}</span>
-        </div>
-        ${processedContent}
+      document.getElementById('resPercent').innerText = percent + "%";
+      document.getElementById('resMissing').innerText = (missing > 0 ? missing : 0) + " tr";
+      document.getElementById('resDailyNeed').innerText = dailyNeed + " tr";
+      
+      document.getElementById('resStrategy').innerHTML = `
+        <b>Đặc thù khu vực:</b> ${storeInfo.tag}<br>
+        <b>Hành động ca trực:</b> ${storeInfo.strategy}
       `;
 
-      container.prepend(card);
-      document.getElementById(boxIdMap[type]).value = "";
-      alert("✅ Đã bóc tách thành công " + titleMap[type] + "!");
+      document.getElementById('resultArea').classList.remove('hidden');
     }
   </script>
 
